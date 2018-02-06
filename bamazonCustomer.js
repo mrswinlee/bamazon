@@ -65,8 +65,9 @@ function promptProductId () {
 function placeOrder (productId, newQuantity) {
 //update SYNTAX quantity using connection.query
 connection.query("UPDATE products SET stock_quantity = stock_quantity- ? WHERE item_id = ? ",
-  [quantity, productId.item_id], function (error, result){
+  [newQuantity, productId.item_id], function (error, result){
     console.log("Your order has been processed.");
+
     displayItems();
   }
   );
